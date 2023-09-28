@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Resume</title>
+<style>
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1F2022;
+    color: #1F2022;
+}
+
+h1 {
+    font-size: 50px;
+    color: #cdd8d7;
+}
+
+h2 {
+    font-size: 25px;
+    color: #0abab5;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1F2022; /* Change to your desired shade of grey */
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-gap: 20px;
+}
+
+
+header {
+    background-color: #5c6160;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-gap: 20px;
+}
+
+.profile-picture-container {
+    width: 300px; /* Increase the width */
+    height: 300px; /* Increase the height */
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px auto 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border: 5px solid #0abab5; /* Add a red border */
+}
+
+
+.profile-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.news-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #D3D3D3;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.quick-links {
+    background: linear-gradient(to right, rgba(51, 51, 51, 0.8) 0%, rgba(51, 51, 51, 0.8) 40%, rgba(51, 51, 51, 0) 100%);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quick-links li {
+    color: #fff;
+    display: inline;
+    margin-right: 20px;
+}
+
+
+article {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+pre {
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Monaco, monospace;
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 50px auto;
+    padding: 50px;
+}
+
+h4 {
+    color: #fff;
+}
+
+a {
+    color: #0a6d7a;
+}
+
+ul {
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+li {
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.sub-heading {
+    font-weight: bold;
+    color: #1F2022;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a {
+    margin: 0;
+}
+
+footer p {
+    color: rgb(255, 255, 255);
+}
+
+th, td {
+    color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.footer-bottom {
+    padding: 5px; /* Adjust the padding as needed */
+}
+
+.footer-bottom p {
+    font-size: 14px; /* Adjust the font size as needed */
+}
+
+
+
+            
+            
+
+
+</style>
+</head>
+<body>
+  <header>
+    <h1>Indrashi Manna</h1>
+  </header>
+  <div class="quick-links">
+    <h2 style="font-size: 35px;">Quick Links</h2>
+
+    <ul>
+      <li><a href="#address">Address</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#personal-interests">Personal Interests</a></li>
+      <li><a href="#strengths-weaknesses">Strengths & Weaknesses</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#mar-certificates">Mar Certificates</a></li>
+      <li><a href="#mar-points">Mar Points</a></li>
+      <li><a href="#contact-me">Contact Me</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="profile-picture-container">
+      <img src="https://i.imgur.com/2mrfjtE.jpg" alt="Profile's Picture" class="profile-picture">
+    </div>
+
+    <div class="news-section">
+      <h2 id="address">Address</h2>
+      <p>Bawali, South 24 Parganas, West Bengal, Pin: 700137.</p>
+    </div>
+    <div class="news-section">
+      <h2 id="education">Education</h2>
+      <div>
+        <p class="sub-heading">SCHOOL:</p>
+        <p>Julien Day School</p>
+      </div>
+      <div>
+        <p class="sub-heading">COLLEGE:</p>
+        <p>Budge Budge Institute of Technology</p>
+      </div>
+    </div>
+    <div class="news-section">
+      <h2 id="personal-interests">Personal Interests</h2>
+      <div>
+        <p class="sub-heading">My personal interests include:</p>
+        <p>Reading, coding, data science, machine learning.</p>
+      </div>
+    </div>
+    <div class="news-section">
+      <h2 id="strengths-weaknesses">Strengths & Weaknesses</h2>
+      <div>
+        <p class="sub-heading">STRENGTH:</p>
+        <p>I am a hardworking man who takes responsibilities very seriously. Also, I am very cooperative and like to work in a team.</p>
+      </div>
+      <div>
+        <p class="sub-heading">WEAKNESS:</p>
+        <p>I have a slight tendency to overthink, a liking for overperfection, and I am occasionally moody.</p>
+      </div>
+    </div>
+    <div class="news-section">
+      <h2 id="skills">Skills</h2>
+      <div>
+        <p><span class="sub-heading">Skill 1:</span> HTML.</p>
+        <p><span class="sub-heading">Skill 2:</span> CSS.</p>
+      </div>
+      <div>
+        <p><span class="sub-heading">Skill 3:</span> JAVA.</p>
+        <p><span class="sub-heading">Skill 4:</span> C.</p>
+      </div>
+      <div>
+        <p><span class="sub-heading">Skill 5:</span> PYTHON.</p>
+        <p><span class="sub-heading">Skill 6:</span> SQL.</p>
+      </div>
+      <div>
+        <p><span class="sub-heading">Skill 7:</span> Shell Script</p>
+        <p><span class="sub-heading">Skill 6:</span> Video making or Content Creation
+          <br/>
+          <big>Watch it on:</big> </p>
+        <a href="https://www.youtube.com/watch?v=SnE6_cI7QMg" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" height="205px" width="100px" alt="Facebook">
+      </a>
+      </div>
+    </div>
+    <div class="news-section">
+      <h2 id="mar-certificates">Mar Certificates</h2>
+      <p>Over the last few months  I have collected a number of Certificates.</p>
+    </div>
+    <div class="news-section">
+      <h2 id="mar-points">Mar Points</h2>
+      <p>In the Mar field, I have collected well over 30 points.</p>
+    </div>
+    <div class="news-section">
+      <h2 id="contact-me">Contact Me</h2>
+      <div>
+        <p><span class="sub-heading">Email ID:</span> indrashismanna@gmail.com.</p>
+      </div>
+      <div>
+        <p><span class="sub-heading">Facebook:</span> <a href="https://www.facebook.com/indrashis.manna.Aamir.khan" target="_blank">Indrashi Manna</a></p>
+        <p><span class="sub-heading">Instagram:</span> <a href="https://www.instagram.com/indra__shis/" target="_blank">indra_shis</a></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-info">
+      <h4>Contact Us</h4>
+      <p>
+        Address: Bawali Rai Chakroborty Para, Budge Budge, West Bengal<br>
+        Phone: 9883059203<br>
+        Email: indrashismanna@gmail.com
+      </p>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/indrashis.manna.Aamir.khan" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/2023_Facebook_icon.svg/1024px-2023_Facebook_icon.svg.png" alt="Facebook" height="70px" width="42px">
+      </a>
+      <a href="https://www.instagram.com/indra__shis/" target="_blank">
+        <img src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c521.png" alt="Instagram" height="75px" width="50px">
+      </a>
+      <a href="https://www.linkedin.com/in/indrashis-chandra-manna-43a9bb230/" target="_blank">
+        <img src="https://static.vecteezy.com/system/resources/previews/018/930/587/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png" height="100px" width="70px" alt="linkedin">
+      </a>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#address">Address</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#personal-interests">Personal Interests</a></li>
+        <li><a href="#strengths-weaknesses">Strengths & Weaknesses</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#mar-certificates">Mar Certificates</a></li>
+        <li><a href="#mar-points">Mar Points</a></li>
+        <li><a href="#contact-me">Contact Me</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; All Rights Reserved. | Designed by <a href="https://www.linkedin.com/in/indrashis-chandra-manna-43a9bb230/" target="_blank">Indrashis Manna</a></p>
+  </div>
+</footer>
+</body>
+</html>
+
+
+
+
