@@ -1,0 +1,89 @@
+Sub CreateMultimediaApplicationPresentation()
+
+    Dim pptApp As Object
+    Dim pptPres As Object
+    Dim slideIndex As Integer
+    Dim slide As Object
+    Dim shape As Object
+
+    ' Create a new PowerPoint application and presentation
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    Set pptPres = pptApp.Presentations.Add
+
+    ' Slide 1: Title Slide
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
+    slide.Shapes(1).TextFrame.TextRange.Text = "Application of Multimedia"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Name: Indrashis Manna" & vbCrLf & _
+                                               "Reg. NO.: 212760100110162" & vbCrLf & _
+                                               "Roll No.: 27600121081" & vbCrLf & _
+                                               "Subject: OECCS701B Multimedia Systems" & vbCrLf & _
+                                               "Department: CSE" & vbCrLf & _
+                                               "Year: 4th Year, Sec: " & vbCrLf & _
+                                               "Academic Year: 2024-25" & vbCrLf & _
+                                               "Year: 2021-22"
+
+    ' Slide 2: Introduction to Multimedia
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Introduction to Multimedia"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia is the integration of text, graphics, audio, video, and animation to communicate information effectively."
+
+    ' Slide 3: Multimedia in Education
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Education"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia is widely used in education for creating interactive learning materials, virtual classrooms, and online courses."
+
+    ' Slide 4: Multimedia in Entertainment
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Entertainment"
+    slide.Shapes(2).TextFrame.TextRange.Text = "The entertainment industry uses multimedia for creating movies, video games, music videos, and animations."
+
+    ' Slide 5: Multimedia in Business
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Business"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Businesses use multimedia for presentations, marketing, advertising, and product demonstrations."
+
+    ' Slide 6: Multimedia in Medicine
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Medicine"
+    slide.Shapes(2).TextFrame.TextRange.Text = "In medicine, multimedia is used for patient education, medical simulations, and telemedicine."
+
+    ' Slide 7: Multimedia in Engineering
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Engineering"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Engineers use multimedia for CAD (Computer-Aided Design), simulations, and visualizations of complex processes."
+
+    ' Slide 8: Multimedia in Journalism
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Journalism"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Journalism leverages multimedia to deliver news through video reports, interactive articles, and digital storytelling."
+
+    ' Slide 9: Advantages of Multimedia
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Advantages of Multimedia"
+    slide.Shapes(2).TextFrame.TextRange.Text = "1. Engages multiple senses" & vbCrLf & _
+                                               "2. Enhances learning and retention" & vbCrLf & _
+                                               "3. Facilitates interactive communication" & vbCrLf & _
+                                               "4. Can be easily distributed and shared"
+
+    ' Slide 10: Conclusion
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = "Conclusion"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia applications are essential in various fields, providing powerful tools for education, entertainment, business, and more."
+
+    ' Final slide: Thank You!
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 3) ' 3 = ppLayoutTitleOnly
+    slide.Shapes(1).TextFrame.TextRange.Text = "Thank You!"
+    
+End Sub
