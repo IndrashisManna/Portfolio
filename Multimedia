@@ -5,14 +5,21 @@ Sub CreateMultimediaPresentation()
     Dim slideIndex As Integer
     Dim slide As Object
     Dim shape As Object
-    Dim bgShape As Object
-    
+    Dim slideTitle As String
+    Dim backgroundImagePath As String
+
+    ' Set your background images paths (make sure to provide the correct paths)
+    Dim images(1 To 3) As String
+    images(1) = "C:\Path\To\Your\Image1.jpg"
+    images(2) = "C:\Path\To\Your\Image2.jpg"
+    images(3) = "C:\Path\To\Your\Image3.jpg"
+
     ' Create a new PowerPoint application and presentation
     Set pptApp = CreateObject("PowerPoint.Application")
     pptApp.Visible = True
     Set pptPres = pptApp.Presentations.Add
 
-    ' Slide 1: Title Slide
+    ' Slide 1: Title Slide with Personal Details
     slideIndex = slideIndex + 1
     Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
     slide.Shapes(1).TextFrame.TextRange.Text = "Application of Multimedia"
@@ -25,81 +32,87 @@ Sub CreateMultimediaPresentation()
                                                "Academic Year: 2024-25" & vbCrLf & _
                                                "Year: 2021-22"
 
+    ' Add background image and apply motion effect for the title slide
+    Set shape = slide.Shapes.AddPicture(images(1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+    shape.ZOrder msoSendToBack
+    ApplyMotionBackgroundEffect shape
+
     ' Slide 2: Introduction to Multimedia
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Introduction to Multimedia"
-    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia is the use of various forms of content such as text, audio, images, animations, and video to convey information."
+    slideTitle = "Introduction to Multimedia"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Multimedia refers to the use of various forms of media such as text, images, audio, and video to present information in an engaging manner."
 
-    ' Slide 3: Types of Multimedia Applications
+    ' Slide 3: Text in Multimedia
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Types of Multimedia Applications"
-    slide.Shapes(2).TextFrame.TextRange.Text = "1. Educational Multimedia" & vbCrLf & _
-                                               "2. Entertainment Multimedia" & vbCrLf & _
-                                               "3. Business Multimedia"
+    slideTitle = "Text in Multimedia"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Text is the most common form of media used in multimedia applications. It provides the basic means of communication and information delivery."
 
-    ' Slide 4: Educational Multimedia
+    ' Slide 4: Images in Multimedia
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Educational Multimedia"
-    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia is used in educational tools such as e-learning platforms, interactive textbooks, and virtual labs."
+    slideTitle = "Images in Multimedia"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Images are used in multimedia to convey visual information and enhance the user's understanding of the content."
 
-    ' Slide 5: Entertainment Multimedia
+    ' Slide 5: Audio in Multimedia
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Entertainment Multimedia"
-    slide.Shapes(2).TextFrame.TextRange.Text = "In entertainment, multimedia is used in video games, movies, music videos, and virtual reality experiences."
+    slideTitle = "Audio in Multimedia"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Audio in multimedia includes music, speech, and sound effects, which are used to enrich the user experience."
 
-    ' Slide 6: Business Multimedia
+    ' Slide 6: Video in Multimedia
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Business Multimedia"
-    slide.Shapes(2).TextFrame.TextRange.Text = "Businesses use multimedia for marketing, presentations, virtual meetings, and e-commerce."
+    slideTitle = "Video in Multimedia"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Video is a powerful tool in multimedia, providing dynamic visual content that can demonstrate concepts effectively."
 
-    ' Slide 7: Multimedia in Healthcare
+    ' Slide 7: Applications of Multimedia in Education
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Healthcare"
-    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia applications are used in healthcare for medical imaging, patient education, and telemedicine."
+    slideTitle = "Applications in Education"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Multimedia is widely used in education to create interactive learning materials, including e-books, online courses, and educational games."
 
-    ' Slide 8: Multimedia in Education
+    ' Slide 8: Applications of Multimedia in Entertainment
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Multimedia in Education"
-    slide.Shapes(2).TextFrame.TextRange.Text = "In education, multimedia enhances learning through interactive lessons, simulations, and educational games."
+    slideTitle = "Applications in Entertainment"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "In the entertainment industry, multimedia is used to produce movies, video games, and virtual reality experiences."
 
-    ' Slide 9: Future of Multimedia
+    ' Slide 9: Applications of Multimedia in Advertising
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Future of Multimedia"
-    slide.Shapes(2).TextFrame.TextRange.Text = "The future of multimedia involves advancements in AR, VR, AI-driven content, and more immersive experiences."
+    slideTitle = "Applications in Advertising"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Multimedia is used in advertising to create compelling ads using images, video, and audio to capture the attention of the audience."
 
     ' Slide 10: Conclusion
     slideIndex = slideIndex + 1
-    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
-    slide.Shapes(1).TextFrame.TextRange.Text = "Conclusion"
-    slide.Shapes(2).TextFrame.TextRange.Text = "Multimedia is an integral part of modern technology, revolutionizing how we communicate, learn, and entertain ourselves."
+    slideTitle = "Conclusion"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "The application of multimedia is vast, impacting various sectors including education, entertainment, and advertising, by making information more engaging and accessible."
 
-    ' Apply moving background to each slide
-    Dim i As Integer
-    For i = 1 To pptPres.Slides.Count
-        Set slide = pptPres.Slides(i)
-        Set bgShape = slide.Shapes.AddShape(msoShapeRectangle, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
-        bgShape.Fill.UserPicture "C:\Path\To\Your\Image.jpg" ' Replace with the path to your image
-        bgShape.ZOrder msoSendToBack
-        
-        ' Animate the background
-        With slide.TimeLine.MainSequence.AddEffect(bgShape, msoAnimEffectFly, , msoAnimTriggerAfterPrevious)
-            .EffectParameters.Direction = msoAnimDirectionLeft
-            .Timing.Duration = 10 ' 10 seconds duration, adjust as needed
-            .Timing.RepeatCount = 0 ' Continuous repeat
-        End With
-    Next i
-    
     ' Final slide: Thank You!
     slideIndex = slideIndex + 1
+    slideTitle = "Thank You!"
     Set slide = pptPres.Slides.Add(slideIndex, 3) ' 3 = ppLayoutTitleOnly
-    slide.Shapes(1).TextFrame.TextRange.Text = "Thank You!"
-    
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+
+    ' Apply background and motion effects for all slides except the title and final slide
+    For i = 2 To slideIndex - 1
+        Set slide = pptPres.Slides(i)
+        Set shape = slide.Shapes.AddPicture(images((i Mod 3) + 1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+        shape.ZOrder msoSendToBack
+        ApplyMotionBackgroundEffect shape
+    Next i
+
+End Sub
+
+Sub CreateContentSlide(pptPres As Object, slideIndex As Integer, slideTitle As String, slideContent As String)
+    ' Create a slide with title and content
+    Dim slide As Object
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+    slide.Shapes(2).TextFrame.TextRange.Text = slideContent
+End Sub
+
+Sub ApplyMotionBackgroundEffect(shape As Object)
+    ' Apply motion path animation to the shape (background image)
+    With shape.AnimationSettings
+        .EntryEffect = ppEffectNone
+        .MotionEffect = ppEffectFlyFromLeft
+        .Animate = True
+        .AdvanceMode = ppAdvanceOnTime
+        .AdvanceTime = 1 ' Change to set how long the animation should last
+    End With
 End Sub
