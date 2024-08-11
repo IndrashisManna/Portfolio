@@ -1,0 +1,126 @@
+Sub CreateCyberWarfarePresentation()
+
+    Dim pptApp As Object
+    Dim pptPres As Object
+    Dim slideIndex As Integer
+    Dim slide As Object
+    Dim shape As Object
+    Dim slideTitle As String
+    Dim backgroundImagePath As String
+
+    ' Set your background images paths (ensure to provide the correct paths)
+    Dim images(1 To 3) As String
+    images(1) = "C:\Path\To\Your\CyberImage1.jpg"
+    images(2) = "C:\Path\To\Your\CyberImage2.jpg"
+    images(3) = "C:\Path\To\Your\CyberImage3.jpg"
+
+    ' Create a new PowerPoint application and presentation
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    Set pptPres = pptApp.Presentations.Add
+
+    ' Slide 1: Title Slide with Personal Details
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
+    slide.Shapes(1).TextFrame.TextRange.Text = "Cyber Warfare"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Name: Indrashis Manna" & vbCrLf & _
+                                               "Reg. NO.: 212760100110162" & vbCrLf & _
+                                               "Roll No.: 27600121081" & vbCrLf & _
+                                               "Subject: PEC-CS702E Cyber Security" & vbCrLf & _
+                                               "Department: CSE" & vbCrLf & _
+                                               "Year: 4th Year, Sec: " & vbCrLf & _
+                                               "Academic Year: 2024-25" & vbCrLf & _
+                                               "Year: 2021-22"
+
+    ' Add background image and apply motion effect for the title slide
+    Set shape = slide.Shapes.AddPicture(images(1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+    shape.ZOrder msoSendToBack
+    ApplyMotionBackgroundEffect shape
+
+    ' Slide 2: Introduction to Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Introduction to Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Cyber warfare refers to the use of digital attacks by nations or state-sponsored actors to disrupt the activities of another state or organization."
+
+    ' Slide 3: Types of Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Types of Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "1. Espionage" & vbCrLf & _
+                                                        "2. Sabotage" & vbCrLf & _
+                                                        "3. Propaganda" & vbCrLf & _
+                                                        "4. Economic Disruption"
+
+    ' Slide 4: Espionage in Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Espionage in Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Cyber espionage involves using cyber tools to access sensitive information and intelligence from other nations or organizations."
+
+    ' Slide 5: Sabotage in Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Sabotage in Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Sabotage in cyber warfare includes attacks on critical infrastructure, such as power grids, financial systems, or military operations."
+
+    ' Slide 6: Propaganda in Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Propaganda in Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Propaganda campaigns involve spreading misleading or false information to influence public opinion and destabilize societies."
+
+    ' Slide 7: Economic Disruption in Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Economic Disruption"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Economic disruption through cyber warfare involves hacking into financial systems to steal or alter data, causing economic instability."
+
+    ' Slide 8: Case Studies in Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Case Studies in Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "1. Stuxnet Worm" & vbCrLf & _
+                                                        "2. Russian Attacks on Ukraine" & vbCrLf & _
+                                                        "3. Sony Pictures Hack"
+
+    ' Slide 9: Defense Against Cyber Warfare
+    slideIndex = slideIndex + 1
+    slideTitle = "Defense Against Cyber Warfare"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Defense strategies include:" & vbCrLf & _
+                                                        "1. Strong Cybersecurity Measures" & vbCrLf & _
+                                                        "2. International Cooperation" & vbCrLf & _
+                                                        "3. Cyber Threat Intelligence"
+
+    ' Slide 10: Conclusion
+    slideIndex = slideIndex + 1
+    slideTitle = "Conclusion"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Cyber warfare is a growing threat in the digital age, requiring robust defense mechanisms and global collaboration to mitigate its impact."
+
+    ' Final slide: Thank You!
+    slideIndex = slideIndex + 1
+    slideTitle = "Thank You!"
+    Set slide = pptPres.Slides.Add(slideIndex, 3) ' 3 = ppLayoutTitleOnly
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+
+    ' Apply background and motion effects for all slides except the title and final slide
+    For i = 2 To slideIndex - 1
+        Set slide = pptPres.Slides(i)
+        Set shape = slide.Shapes.AddPicture(images((i Mod 3) + 1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+        shape.ZOrder msoSendToBack
+        ApplyMotionBackgroundEffect shape
+    Next i
+
+End Sub
+
+Sub CreateContentSlide(pptPres As Object, slideIndex As Integer, slideTitle As String, slideContent As String)
+    ' Create a slide with title and content
+    Dim slide As Object
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+    slide.Shapes(2).TextFrame.TextRange.Text = slideContent
+End Sub
+
+Sub ApplyMotionBackgroundEffect(shape As Object)
+    ' Apply motion path animation to the shape (background image)
+    With shape.AnimationSettings
+        .EntryEffect = ppEffectNone
+        .MotionEffect = ppEffectFlyFromLeft
+        .Animate = True
+        .AdvanceMode = ppAdvanceOnTime
+        .AdvanceTime = 1 ' Change to set how long the animation should last
+    End With
+End Sub
