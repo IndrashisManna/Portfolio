@@ -1,0 +1,137 @@
+Sub CreateBlueOceanStrategyPresentation()
+
+    Dim pptApp As Object
+    Dim pptPres As Object
+    Dim slideIndex As Integer
+    Dim slide As Object
+    Dim shape As Object
+    Dim backgroundImagePath As String
+
+    ' Set your background images paths (ensure to provide the correct paths)
+    Dim images(1 To 3) As String
+    images(1) = "C:\Path\To\Your\BlueOceanImage1.jpg"
+    images(2) = "C:\Path\To\Your\BlueOceanImage2.jpg"
+    images(3) = "C:\Path\To\Your\BlueOceanImage3.jpg"
+
+    ' Create a new PowerPoint application and presentation
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    Set pptPres = pptApp.Presentations.Add
+
+    ' Slide 1: Title Slide with Personal Details
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 50).TextFrame.TextRange.Text = "Blue Ocean Strategy"
+        .AddTextbox(msoTextOrientationHorizontal, 50, 150, 600, 150).TextFrame.TextRange.Text = "Name: Indrashis Manna" & vbCrLf & _
+                                                      "Reg. NO.: 212760100110162" & vbCrLf & _
+                                                      "Roll No.: 27600121081" & vbCrLf & _
+                                                      "Subject: OECCS701B Multimedia Systems" & vbCrLf & _
+                                                      "Department: CSE" & vbCrLf & _
+                                                      "Year: 4th Year, Sec: " & vbCrLf & _
+                                                      "Academic Year: 2024-25" & vbCrLf & _
+                                                      "Year: 2021-22"
+    End With
+
+    ' Add background image and apply motion effect for the title slide
+    Set shape = slide.Shapes.AddPicture(images(1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+    shape.ZOrder msoSendToBack
+    ApplyMotionBackgroundEffect shape
+
+    ' Slide 2: Introduction to Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutText
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Introduction to Blue Ocean Strategy" & vbCrLf & _
+        "Blue Ocean Strategy is a business strategy that suggests companies are better off searching for ways to gain 'uncontested market space' than competing with similar companies."
+    End With
+
+    ' Slide 3: Red Ocean vs. Blue Ocean
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Red Ocean vs. Blue Ocean" & vbCrLf & _
+        "Red Ocean: Compete in existing market space." & vbCrLf & _
+        "Blue Ocean: Create uncontested market space."
+    End With
+
+    ' Slide 4: Key Principles of Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Key Principles of Blue Ocean Strategy" & vbCrLf & _
+        "1. Focus on the big picture, not the numbers." & vbCrLf & _
+        "2. Reach beyond existing demand." & vbCrLf & _
+        "3. Overcome key organizational hurdles."
+    End With
+
+    ' Slide 5: Value Innovation
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Value Innovation" & vbCrLf & _
+        "Value Innovation is the cornerstone of Blue Ocean Strategy. It is about making the competition irrelevant by creating a leap in value for both the company and its customers."
+    End With
+
+    ' Slide 6: Case Study 1: Cirque du Soleil
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Case Study: Cirque du Soleil" & vbCrLf & _
+        "Cirque du Soleil is an example of Blue Ocean Strategy. They redefined the circus experience by combining elements of theater and circus, creating a new market space."
+    End With
+
+    ' Slide 7: Case Study 2: Nintendo Wii
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Case Study: Nintendo Wii" & vbCrLf & _
+        "Nintendo Wii created a Blue Ocean by targeting casual gamers rather than competing directly with Sony and Microsoft in the high-performance console market."
+    End With
+
+    ' Slide 8: Tools for Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Tools for Blue Ocean Strategy" & vbCrLf & _
+        "1. Strategy Canvas" & vbCrLf & _
+        "2. Four Actions Framework" & vbCrLf & _
+        "3. Eliminate-Reduce-Raise-Create Grid"
+    End With
+
+    ' Slide 9: Implementing Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Implementing Blue Ocean Strategy" & vbCrLf & _
+        "Implementing Blue Ocean Strategy involves four steps: visual awakening, visual exploration, visual strategy fair, and visual communication."
+    End With
+
+    ' Slide 10: Conclusion
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1)
+    With slide.Shapes
+        .AddTextbox(msoTextOrientationHorizontal, 50, 50, 600, 400).TextFrame.TextRange.Text = "Conclusion" & vbCrLf & _
+        "Blue Ocean Strategy provides a systematic approach to making the competition irrelevant and creating new market space."
+    End With
+
+    ' Apply background and motion effects for all slides except the title slide
+    For i = 2 To slideIndex
+        Set slide = pptPres.Slides(i)
+        Set shape = slide.Shapes.AddPicture(images((i Mod 3) + 1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+        shape.ZOrder msoSendToBack
+        ApplyMotionBackgroundEffect shape
+    Next i
+
+End Sub
+
+Sub ApplyMotionBackgroundEffect(shape As Object)
+    ' Apply motion path animation to the shape (background image)
+    With shape.AnimationSettings
+        .EntryEffect = ppEffectNone
+        .MotionEffect = ppEffectFlyFromLeft
+        .Animate = True
+        .AdvanceMode = ppAdvanceOnTime
+        .AdvanceTime = 1 ' Set animation duration
+    End With
+End Sub
