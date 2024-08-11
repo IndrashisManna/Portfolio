@@ -1,0 +1,126 @@
+Sub CreateBlueOceanStrategyPresentation()
+
+    Dim pptApp As Object
+    Dim pptPres As Object
+    Dim slideIndex As Integer
+    Dim slide As Object
+    Dim shape As Object
+    Dim slideTitle As String
+    Dim backgroundImagePath As String
+
+    ' Set your background images paths (ensure to provide the correct paths)
+    Dim images(1 To 3) As String
+    images(1) = "C:\Path\To\Your\Image1.jpg"
+    images(2) = "C:\Path\To\Your\Image2.jpg"
+    images(3) = "C:\Path\To\Your\Image3.jpg"
+
+    ' Create a new PowerPoint application and presentation
+    Set pptApp = CreateObject("PowerPoint.Application")
+    pptApp.Visible = True
+    Set pptPres = pptApp.Presentations.Add
+
+    ' Slide 1: Title Slide with Personal Details
+    slideIndex = slideIndex + 1
+    Set slide = pptPres.Slides.Add(slideIndex, 1) ' 1 = ppLayoutTitle
+    slide.Shapes(1).TextFrame.TextRange.Text = "Blue Ocean Strategy"
+    slide.Shapes(2).TextFrame.TextRange.Text = "Name: Indrashis Manna" & vbCrLf & _
+                                               "Reg. NO.: 212760100110162" & vbCrLf & _
+                                               "Roll No.: 27600121081" & vbCrLf & _
+                                               "Subject: OECCS701B Multimedia Systems" & vbCrLf & _
+                                               "Department: CSE" & vbCrLf & _
+                                               "Year: 4th Year, Sec: " & vbCrLf & _
+                                               "Academic Year: 2024-25" & vbCrLf & _
+                                               "Year: 2021-22"
+
+    ' Add background image and apply motion effect for the title slide
+    Set shape = slide.Shapes.AddPicture(images(1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+    shape.ZOrder msoSendToBack
+    ApplyMotionBackgroundEffect shape
+
+    ' Slide 2: What is Blue Ocean Strategy?
+    slideIndex = slideIndex + 1
+    slideTitle = "What is Blue Ocean Strategy?"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Blue Ocean Strategy is a business concept that suggests companies should create new, uncontested market spaces to avoid competition."
+
+    ' Slide 3: Red Ocean vs Blue Ocean
+    slideIndex = slideIndex + 1
+    slideTitle = "Red Ocean vs Blue Ocean"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Red Oceans represent all the industries in existence today, while Blue Oceans denote untapped market space and potential for high growth."
+
+    ' Slide 4: Principles of Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    slideTitle = "Principles of Blue Ocean Strategy"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "1. Reconstruct Market Boundaries" & vbCrLf & _
+                                                        "2. Focus on the Big Picture" & vbCrLf & _
+                                                        "3. Reach Beyond Existing Demand" & vbCrLf & _
+                                                        "4. Get the Strategic Sequence Right"
+
+    ' Slide 5: Value Innovation
+    slideIndex = slideIndex + 1
+    slideTitle = "Value Innovation"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Value innovation is the cornerstone of Blue Ocean Strategy. It aims to create new value for both the company and the customers, breaking the trade-off between value and cost."
+
+    ' Slide 6: Tools and Frameworks
+    slideIndex = slideIndex + 1
+    slideTitle = "Tools and Frameworks"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Tools like the Strategy Canvas and the Four Actions Framework help companies implement Blue Ocean Strategy by visualizing and restructuring their market strategies."
+
+    ' Slide 7: Case Study: Cirque du Soleil
+    slideIndex = slideIndex + 1
+    slideTitle = "Case Study: Cirque du Soleil"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Cirque du Soleil is a prime example of Blue Ocean Strategy, where the company created a new market space in the circus industry, blending circus arts with theater."
+
+    ' Slide 8: Challenges in Implementing Blue Ocean Strategy
+    slideIndex = slideIndex + 1
+    slideTitle = "Challenges in Implementing"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "1. Overcoming organizational inertia" & vbCrLf & _
+                                                        "2. Aligning the organization behind the strategy" & vbCrLf & _
+                                                        "3. Sustaining the Blue Ocean Strategy"
+
+    ' Slide 9: Steps to Create a Blue Ocean
+    slideIndex = slideIndex + 1
+    slideTitle = "Steps to Create a Blue Ocean"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "1. Identify a market opportunity" & vbCrLf & _
+                                                        "2. Redefine the market" & vbCrLf & _
+                                                        "3. Create new demand" & vbCrLf & _
+                                                        "4. Execute with precision"
+
+    ' Slide 10: Conclusion
+    slideIndex = slideIndex + 1
+    slideTitle = "Conclusion"
+    CreateContentSlide pptPres, slideIndex, slideTitle, "Blue Ocean Strategy offers a systematic approach to creating uncontested market space and making competition irrelevant. It focuses on value innovation and strategic differentiation."
+
+    ' Final slide: Thank You!
+    slideIndex = slideIndex + 1
+    slideTitle = "Thank You!"
+    Set slide = pptPres.Slides.Add(slideIndex, 3) ' 3 = ppLayoutTitleOnly
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+
+    ' Apply background and motion effects for all slides except the title and final slide
+    For i = 2 To slideIndex - 1
+        Set slide = pptPres.Slides(i)
+        Set shape = slide.Shapes.AddPicture(images((i Mod 3) + 1), msoFalse, msoCTrue, 0, 0, pptPres.PageSetup.SlideWidth, pptPres.PageSetup.SlideHeight)
+        shape.ZOrder msoSendToBack
+        ApplyMotionBackgroundEffect shape
+    Next i
+
+End Sub
+
+Sub CreateContentSlide(pptPres As Object, slideIndex As Integer, slideTitle As String, slideContent As String)
+    ' Create a slide with title and content
+    Dim slide As Object
+    Set slide = pptPres.Slides.Add(slideIndex, 2) ' 2 = ppLayoutText
+    slide.Shapes(1).TextFrame.TextRange.Text = slideTitle
+    slide.Shapes(2).TextFrame.TextRange.Text = slideContent
+End Sub
+
+Sub ApplyMotionBackgroundEffect(shape As Object)
+    ' Apply motion path animation to the shape (background image)
+    With shape.AnimationSettings
+        .EntryEffect = ppEffectNone
+        .MotionEffect = ppEffectFlyFromLeft
+        .Animate = True
+        .AdvanceMode = ppAdvanceOnTime
+        .AdvanceTime = 1 ' Change to set how long the animation should last
+    End With
+End Sub
